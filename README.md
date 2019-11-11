@@ -1,2 +1,2 @@
 # GardenMonitoringSystem
-<img src="https://imgur.com/a/s8UEQW2">
+<img src="https://imgur.com/a/s1eR9nR">
