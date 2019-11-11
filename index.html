@@ -4,9 +4,14 @@
   <title>Garden Monitoring System</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <style>
+    body {
+  background-image: url('https://static.wixstatic.com/media/117d700ff79f490587e0bbaad89bc84f.jpeg/v1/fill/w_980,h_666,al_c,q_85,usm_0.66_1.00_0.01/117d700ff79f490587e0bbaad89bc84f.webp');
+}
     .head{
-      font-size: 50px;
-      padding-top: 75px;
+      font-weight: bold;
+      font-size: 80px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      padding-top: 5px;
       text-align:center;
     }
     .main{
@@ -19,6 +24,8 @@
       transform: translate(-50%,-50%);
     }
     .mypanel1 {
+      font-weight: bold;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       padding: 35px;
       display: inline-block;
       align-self: center;
@@ -26,6 +33,8 @@
       background-color:lightskyblue;
     }
     .mypanel2 {
+      font-weight: bold;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       padding: 35px;
       display: inline-block;
       align-self: center;
@@ -33,6 +42,8 @@
       background-color:lightskyblue;
     }
     .mypanel3 {
+      font-weight: bold;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
       padding: 35px;
       display: inline-block;
       align-self: center;
@@ -43,7 +54,7 @@
   </head>
   <body>
     <div class="head">
-      Garden Monitoring System
+      <font color="white">Garden Monitoring System</font>
     </div>
     <div class="main">
       <div class="mypanel1">
@@ -54,7 +65,7 @@
       </div>
     </div>
     <script>
-    $.getJSON('http://192.168.31.95', function(data) {
+    $.getJSON('http://10.0.0.2:88', function(data) {
       var text1 = `Rain:<br> ${data.rain}`
       $(".mypanel1").html(text1);
       var text2 = `Humidity:<br>  ${data.humidity}`
