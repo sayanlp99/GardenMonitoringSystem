@@ -3,10 +3,12 @@
   <head>
   <title>Garden Monitoring System</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <style>
     body {
-  background-image: url('https://static.wixstatic.com/media/117d700ff79f490587e0bbaad89bc84f.jpeg/v1/fill/w_980,h_666,al_c,q_85,usm_0.66_1.00_0.01/117d700ff79f490587e0bbaad89bc84f.webp');
-}
+      background-image: url('https://static.wixstatic.com/media/117d700ff79f490587e0bbaad89bc84f.jpeg/v1/fill/w_980,h_666,al_c,q_85,usm_0.66_1.00_0.01/117d700ff79f490587e0bbaad89bc84f.webp');
+      background-size: cover;
+    }
     .head{
       font-weight: bold;
       font-size: 80px;
@@ -53,17 +55,17 @@
   </style>
   </head>
   <body>
+    <div id="whole">
     <div class="head">
       <font color="white">Garden Monitoring System</font>
     </div>
-    <div class="main">
-      <div class="mypanel1">
+    <div class="main" id="main">
+      <div class="mypanel1" id="mypanel1">
       </div>
-      <div class="mypanel2">
+      <div class="mypanel2" id="mypanel2">
       </div> 
-      <div class="mypanel3">
+      <div class="mypanel3" id="mypanel3">
       </div>
-    </div>
     <script>
     $.getJSON('http://10.0.0.2:88', function(data) {
       var text1 = `Rain:<br> ${data.rain}`
@@ -73,6 +75,15 @@
       var text3 = `Temperature:<br> ${data.temperature}`
       $(".mypanel3").html(text3);
     });
-    </script> 
+    </script>
+    </div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    var auto_refresh = setInterval(
+    function () {
+        $('#whole').load('#whole');
+    }, 50);
+    </script>
   </body>
 </html>
