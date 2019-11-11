@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Garden Monitoring System</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <style>
+  .main{
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+  }
+  .mypanel1 {
+    padding: 35px;
+    display: inline-block;
+    align-self: center;
+    text-align: left;
+    background-color:lightskyblue;
+  }
+  .mypanel2 {
+    padding: 35px;
+    display: inline-block;
+    align-self: center;
+    text-align: left;
+    background-color:lightskyblue;
+  }
+  .mypanel3 {
+    padding: 35px;
+    display: inline-block;
+    align-self: center;
+    text-align: left;
+    background-color:lightskyblue;
+  }
+  </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="mypanel1">
+      </div>
+      <div class="mypanel2">
+      </div> 
+      <div class="mypanel3">
+      </div>
+    </div>
+    <script>
+    $.getJSON('http://ip.of.nodeMCU', function(data) {
+      var text1 = `Rain:<br> ${data.rain}`
+      $(".mypanel1").html(text1);
+      var text2 = `Humidity:<br>  ${data.humidity}`
+      $(".mypanel2").html(text2);
+      var text3 = `Temperature:<br> ${data.temperature}`
+      $(".mypanel3").html(text3);
+    });
+    </script> 
+  </body>
+</html>
