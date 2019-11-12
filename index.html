@@ -67,7 +67,7 @@
       <div class="mypanel3" id="mypanel3">
       </div>
     <script>
-    $.getJSON('http://10.0.0.2:88', function(data) {
+    $.getJSON('http://10.0.0.2', function(data) {
       var text1 = `Rain:<br> ${data.rain}`
       $(".mypanel1").html(text1);
       var text2 = `Humidity:<br>  ${data.humidity}`
