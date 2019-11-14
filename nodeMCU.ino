@@ -36,7 +36,7 @@ void loop(){
             client.print(digitalRead(5));
             client.println(",");
             client.print("\"humidity\":");
-            client.print(analogRead(4));
+            client.print(digitalRead(4));
             client.println(",");
             client.print("\"temperature\":");
             client.println(analogRead(A0));
