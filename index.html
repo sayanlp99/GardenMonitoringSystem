@@ -61,19 +61,28 @@
     </div>
     <div class="main" id="main">
       <div class="mypanel1" id="mypanel1">
+          Rain:<br>
+          <div class="l1" id="l1">
+            </div>
       </div>
       <div class="mypanel2" id="mypanel2">
+          Humidity:<br> 
+          <div class="l2" id="l2">
+            </div>
       </div> 
       <div class="mypanel3" id="mypanel3">
+          Temperature:<br> 
+          <div class="l3" id="l3">
+            </div>
       </div>
     <script>
-    $.getJSON('http://node.mcu.ip', function(data) {
-      var text1 = `Rain:<br> ${data.rain}`
-      $(".mypanel1").html(text1);
-      var text2 = `Humidity:<br>  ${data.humidity}`
-      $(".mypanel2").html(text2);
-      var text3 = `Temperature:<br> ${data.temperature}`
-      $(".mypanel3").html(text3);
+    $.getJSON('http://192.168.31.95/', function(data) {
+      var text1 = `${data.rain}`
+      $(".l1").html(text1);
+      var text2 = `${data.humidity}`
+      $(".l2").html(text2);
+      var text3 = `${data.temperature}`
+      $(".l3").html(text3);
     });
     </script>
     </div>
