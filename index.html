@@ -76,7 +76,7 @@
             </div>
       </div>
     <script>
-    $.getJSON('http://192.168.31.95/', function(data) {
+    $.getJSON('http://nodemcu.ip/', function(data) {
       var text1 = `${data.rain}`
       $(".l1").html(text1);
       var text2 = `${data.humidity}`
