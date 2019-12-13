@@ -41,6 +41,7 @@ void loop(){
             client.print("\"temperature\":");
             client.println(analogRead(A0));
             client.println("}");
-    Serial.println("");
+    Serial.println("Accessing");
+    delay(2000);
   }
 }
