@@ -1,8 +1,19 @@
 #include <ESP8266WiFi.h>
+#include <ArduinoJson.h>
 const char* ssid     = "SSID";
 const char* password = "PASSWORD";
 WiFiServer server(80);
 String header;
+
+void jsonEncode(){
+  const size_t capacity = JSON_OBJECT_SIZE(3);
+  DynamicJsonDocument payload(capacity);
+  payload["rain"] = digitalRead(4);
+  payload["humidity"] = digitalRead(5);
+  payload["temperature"] = analogRead(A0);
+  serializeJson(payload, Serial);
+}
+
 void setup() {
   Serial.begin(9600);
   pinMode(5, INPUT);
@@ -23,7 +34,8 @@ void setup() {
 
 void loop(){
   WiFiClient client = server.available();
-  if (client) {                            
+  if (client) {
+            jsonEncode();                            
             client.println("HTTP/1.1 200 OK");
             client.println("Access-Control-Allow-Origin:*");
             client.println("Content-type:application/json");
@@ -31,16 +43,7 @@ void loop(){
             client.println("Content-lenght:100");
             client.println("Connection:keep-alive");
             client.println();
-            client.println("{");
-            client.print("\"rain\":");
-            client.print(digitalRead(5));
-            client.println(",");
-            client.print("\"humidity\":");
-            client.print(digitalRead(4));
-            client.println(",");
-            client.print("\"temperature\":");
-            client.println(analogRead(A0));
-            client.println("}");
+            client.println(payload);
     Serial.println("Accessing");
     delay(2000);
   }
