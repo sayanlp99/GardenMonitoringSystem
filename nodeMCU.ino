@@ -1,5 +1,5 @@
 #include <ESP8266WiFi.h>
-#include <ArduinoJson.h>
+#include <ArduinoJson.h>      //ArduinoJson v6.13.0
 const char* ssid     = "SSID";
 const char* password = "PASSWORD";
 WiFiServer server(80);
